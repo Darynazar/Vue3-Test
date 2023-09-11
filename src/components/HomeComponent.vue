@@ -1,28 +1,27 @@
 <template>
   <div class="">
-    <slot name="ul"></slot>
+    <p>Name: {{ name }}</p>
+    <ul>
+      <li v-for="(userName, index) in userNames" :key="index">
+        {{ userName }}
+      </li>
+    </ul>
   </div>
-  <hr>
-  <slot name="div"></slot>
+  <hr />
 
-  <button @click="sendData">send data</button>
-  <slot></slot>
 </template>
   
   <script>
+  import {userNames} from '../mixins.js';
 export default {
-  props: {
-    
-  },
+  props: {},
+  mixins:[userNames],
   data() {
     return {
-    
+      name: "Name",
     };
   },
-  methods: {
-   
-  },
-
+  methods: {},
 };
 </script>
   
