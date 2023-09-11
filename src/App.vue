@@ -1,15 +1,16 @@
 <template>
-  <HomeCompnent>
+  
     <ul>
       <li v-for="(userName, index) in userNames" :key="index">
         {{ userName }}
       </li>
     </ul>
+    <hr>
+    <teleport to="#teleport-target">
+      <HomeCompnent></HomeCompnent>
+    </teleport>
 
-    <div>
-      <h1>daryy</h1>
-    </div>
-  </HomeCompnent>
+  
 
   <div>
     <h1>app.vue</h1>
