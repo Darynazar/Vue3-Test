@@ -1,36 +1,37 @@
 <template>
+  <div class="">
+    <h1>{{ userInfo.name }}</h1>
+    <h1>{{ userInfo.lastname }}</h1>
+  </div>
 
-    <div class="">
-      <h1>{{userInfo.name}}</h1>
-      <h1>{{userInfo.lastname}}</h1>
-    </div>
+  <button @click="sendData">send data</button>
 
-    <button @click="sendData">send data</button>
-  </template>
+  {{ user }}
+  {{ data }}
+</template>
   
   <script>
-  
-  
-  export default {
-    props:{
-        userInfo: Object
+export default {
+  props: {
+    userInfo: Object,
+  },
+  data() {
+    return {
+      data: "DATA",
+    };
+  },
+  methods: {
+    sendData() {
+      this.$emit("childData", this.data);
     },
-    data(){
-        return{
-            data:'DATA'
-        }
-    },
-    methods: {
-        sendData(){
-            this.$emit('childData', this.data)
-        }
-    }
-  }
-  </script>
+  },
+  inject: ['user', 'data']
+};
+</script>
   
   <style scoped>
-  div {
-  color:red
+div {
+  color: red;
 }
-  </style>
+</style>
   

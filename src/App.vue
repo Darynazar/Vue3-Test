@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { provide } from 'vue';
 import HomeCompnent from "./components/HomeComponent.vue";
 
 export default {
@@ -27,6 +28,10 @@ export default {
 
       console.log(name)
     }
+  },
+  provide: {
+    user: 'ali',
+    data: 'test'
   }
 };
 </script>
