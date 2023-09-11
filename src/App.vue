@@ -1,31 +1,35 @@
 <template>
+  <HomeCompnent :userInfo="userInfo" @childData="showData($event)" />
 
- <HomeCompnent :userInfo="userInfo"/>
-
- <div>
-  <h1>app.vue</h1>
- </div>
+  <div>
+    <h1>app.vue</h1>
+  </div>
 </template>
 
 <script>
-import HomeCompnent from './components/HomeComponent.vue';
+import HomeCompnent from "./components/HomeComponent.vue";
 
 export default {
- components: {
-  HomeCompnent
- },
- data(){
-  return {
-    userInfo: {
-      name:'darynazar',
-    lastname:'heydari',
-  }
+  components: {
+    HomeCompnent,
+  },
+  data() {
+    return {
+      userInfo: {
+        name: "darynazar",
+        lastname: "heydari",
+      },
+    };
+  },
+  methods:{
+    showData(name){
+      this.userInfo.name = name
+
+      console.log(name)
     }
-   
- }
+  }
 };
 </script>
 
 <style>
-
 </style>
