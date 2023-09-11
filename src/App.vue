@@ -1,5 +1,17 @@
 <template>
-  <HomeCompnent :userInfo="userInfo" @childData="showData($event)" />
+  <HomeCompnent>
+    <template v-slot:ul>
+      <ul>
+      <li v-for="(lang, index) in langs" :key="index">{{lang}}</li>
+    </ul>
+    </template>
+   <template v-slot:div>
+    <div>
+      <h1>daryy</h1>
+    </div>
+   </template>
+    
+    </HomeCompnent>
 
   <div>
     <h1>app.vue</h1>
@@ -7,7 +19,7 @@
 </template>
 
 <script>
-import { provide } from 'vue';
+
 import HomeCompnent from "./components/HomeComponent.vue";
 
 export default {
@@ -15,26 +27,18 @@ export default {
     HomeCompnent,
   },
   data() {
-    return {
-      userInfo: {
-        name: "darynazar",
-        lastname: "heydari",
-      },
-    };
-  },
-  methods:{
-    showData(name){
-      this.userInfo.name = name
-
-      console.log(name)
+    return{
+      langs :['php', 'js', 'cpp', 'c']
     }
   },
-  provide: {
-    user: 'ali',
-    data: 'test'
-  }
+  methods:{
+   
+  },
 };
 </script>
 
 <style>
+li{
+  color: red;
+}
 </style>

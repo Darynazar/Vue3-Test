@@ -1,31 +1,28 @@
 <template>
   <div class="">
-    <h1>{{ userInfo.name }}</h1>
-    <h1>{{ userInfo.lastname }}</h1>
+    <slot name="ul"></slot>
   </div>
+  <hr>
+  <slot name="div"></slot>
 
   <button @click="sendData">send data</button>
-
-  {{ user }}
-  {{ data }}
+  <slot></slot>
 </template>
   
   <script>
 export default {
   props: {
-    userInfo: Object,
+    
   },
   data() {
     return {
-      data: "DATA",
+    
     };
   },
   methods: {
-    sendData() {
-      this.$emit("childData", this.data);
-    },
+   
   },
-  inject: ['user', 'data']
+
 };
 </script>
   
