@@ -1,7 +1,8 @@
 <template>
 
     <div class="">
-      <h1>{{name}}</h1>
+      <h1>{{userInfo.name}}</h1>
+      <h1>{{userInfo.lastname}}</h1>
     </div>
   </template>
   
@@ -9,15 +10,15 @@
   
   
   export default {
-    data(){
-        return{
-            name: 'darynazar.com'
-        }
+    props:{
+        userInfo: Object
     }
   }
   </script>
   
-  <style>
-  
+  <style scoped>
+  div {
+  color:red
+}
   </style>
   
