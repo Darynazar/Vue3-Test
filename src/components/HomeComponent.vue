@@ -1,19 +1,26 @@
 <template>
   <div class="">
-    <h1>{{ name }}</h1>
+    <h1>{{ obj }}</h1>
     <button @click="updateName">update</button>
   </div>
 </template>
   
   <script>
-import { ref } from "vue";
+import { ref,reactive } from "vue";
 export default {
   setup() {
     let name = ref("daryyr");
+    let obj = reactive({
+      a:"A",
+      b:"B"
+    });
     function updateName() {
-      name.value = "ali heydari";
+      console.log(obj);
+      obj.a = "C"
+
+      // name.value = "ali heydari";
     }
-    return { name, updateName };
+    return { obj, name, updateName };
   },
 };
 </script>
