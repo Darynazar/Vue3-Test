@@ -1,6 +1,6 @@
 <template>
     
-      <HomeCompnent :name="name"></HomeCompnent>
+      <HomeCompnent :name="name" @updateName="update"></HomeCompnent>
    
   <div>
     <h1>app.vue</h1>
@@ -18,7 +18,11 @@ export default {
   setup(){
     const name=ref('dary');
 
-    return {name};
+    function update(newName){
+      name.value=newName;
+    }
+
+    return {name,update};
   }
 };
 </script>
