@@ -1,26 +1,19 @@
 <template>
   <div class="">
-    <h1>{{ obj }}</h1>
-    <button @click="updateName">update</button>
+    <h1>{{ count }}</h1>
+    <button @click="increment">increment</button>
   </div>
 </template>
   
   <script>
-import { ref,reactive } from "vue";
+import { ref } from 'vue';
+
+import { useCounter } from '../composables/useCounter.js'
 export default {
   setup() {
-    let name = ref("daryyr");
-    let obj = reactive({
-      a:"A",
-      b:"B"
-    });
-    function updateName() {
-      console.log(obj);
-      obj.a = "C"
-
-      // name.value = "ali heydari";
-    }
-    return { obj, name, updateName };
+   const counter =ref(2);
+    const {count, increment} = useCounter(counter);
+    return { count, increment };
   },
 };
 </script>
