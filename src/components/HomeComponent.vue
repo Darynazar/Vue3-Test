@@ -1,38 +1,21 @@
 <template>
   <div class="">
-    <h1>{{ fullname }}</h1>
-    <button @click="updateName">updateName</button>
+    <h1>{{ name }}</h1>
+   
   </div>
 </template>
   
   <script>
-import { computed, ref, watch, watchEffect } from "vue";
 
 export default {
-  setup() {
-    const name = ref("ali");
-    const last = ref("dary");
-    const fullname = computed(() => {
-      // console.log(name.value)
-      // console.log(last.value)
-      return name.value + " " + last.value;
-    });
+ props:['name'],
+ setup(props){
 
-    watch(name, (newValue, oldValue) => {
-      console.log(name.value, newValue, oldValue);
-      console.log(last.value);
-    });
-
-    watchEffect(()=>{
-      console.log(name.value)
-      console.log(last.value)
-    })
-
-    function updateName() {
-      name.value = "heydar";
-    }
-    return { name, last, fullname, updateName };
-  },
+  console.log(props);
+  return {}
+ }
+    
+  
 };
 </script>
   

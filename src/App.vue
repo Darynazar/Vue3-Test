@@ -1,35 +1,25 @@
 <template>
-  
-    <ul>
-      <li v-for="(userName, index) in userNames" :key="index">
-        {{ userName }}
-      </li>
-    </ul>
-    <hr>
-    <teleport to="#teleport-target">
-      <HomeCompnent></HomeCompnent>
-    </teleport>
-
-  
-
+    
+      <HomeCompnent :name="name"></HomeCompnent>
+   
   <div>
     <h1>app.vue</h1>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue';
 import HomeCompnent from "./components/HomeComponent.vue";
 
 export default {
   components: {
     HomeCompnent,
   },
-  data() {
-    return {
-      userNames: ["ali", "nima", "navid"],
-    };
-  },
-  methods: {},
+  setup(){
+    const name=ref('dary');
+
+    return {name};
+  }
 };
 </script>
 
