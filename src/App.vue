@@ -1,14 +1,12 @@
 <template>
     
-      <HomeCompnent :name="name" @updateName="update"></HomeCompnent>
+      <HomeCompnent></HomeCompnent>
    
-  <div>
-    <h1>app.vue</h1>
-  </div>
+ 
 </template>
 
 <script>
-import { ref } from 'vue';
+import { provide, ref } from 'vue';
 import HomeCompnent from "./components/HomeComponent.vue";
 
 export default {
@@ -18,11 +16,9 @@ export default {
   setup(){
     const name=ref('dary');
 
-    function update(newName){
-      name.value=newName;
-    }
+   provide('name',name);
 
-    return {name,update};
+    return {name};
   }
 };
 </script>

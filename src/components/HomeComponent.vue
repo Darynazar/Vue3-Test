@@ -1,20 +1,19 @@
 <template>
   <div class="">
     <h1>{{ name }}</h1>
-    <button @click="update">update</button>
+  
   </div>
 </template>
   
   <script>
+import { inject } from 'vue';
 export default {
-  props: ["name"],
-  setup(props, { emit }) {
-    function update(){
-    emit("updateName", "ali heydar");
-      
-    }
-    return {update};
+
+  setup() {
+  const name = inject('name');
+    return {name};
   },
+
 };
 </script>
   
