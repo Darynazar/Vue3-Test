@@ -1,30 +1,26 @@
 <template>
     
-      <HomeCompnent></HomeCompnent>
-   
+      <!-- <HomeCompnent></HomeCompnent> -->
+      <router-link class="mr-2" to="/">HomeComponent</router-link>
+      <router-link class="mr-2" to="/users">UserComponent</router-link>
+      <router-link to="/posts">PostComponent</router-link>
+   <hr>
+   <router-view></router-view>
  
 </template>
 
 <script>
-import { provide, ref } from 'vue';
-import HomeCompnent from "./components/HomeComponent.vue";
 
 export default {
-  components: {
-    HomeCompnent,
-  },
+  
   setup(){
-    const name=ref('dary');
-
-   provide('name',name);
-
-    return {name};
+    return {};
   }
 };
 </script>
 
 <style>
-li {
-  color: red;
+.mr-2{
+  margin-right: 2rem;
 }
 </style>
